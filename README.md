@@ -1,4 +1,6 @@
+[![GitHubActions badge](https://github.com/tank-bohr/cookpod/workflows/Build/badge.svg)](https://github.com/tank-bohr/cookpod/actions?query=workflow%3ABuild)
 [![codebeat badge](https://codebeat.co/badges/ba011f37-2eba-4d68-b1da-aa72c7a6300d)](https://codebeat.co/projects/github-com-tank-bohr-cookpod-master)
+[![codecov](https://codecov.io/gh/tank-bohr/cookpod/branch/master/graph/badge.svg?token=ctXNcC0edO)](https://codecov.io/gh/tank-bohr/cookpod)
 
 # Cookpod
 
