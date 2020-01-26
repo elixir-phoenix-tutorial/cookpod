@@ -17,6 +17,7 @@ defmodule CookpodWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/privacy", PageController, :privacy
   end
 
   # Other scopes may use custom stacks.
