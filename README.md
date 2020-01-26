@@ -1,3 +1,5 @@
+[![codebeat badge](https://codebeat.co/badges/ba011f37-2eba-4d68-b1da-aa72c7a6300d)](https://codebeat.co/projects/github-com-tank-bohr-cookpod-master)
+
 # Cookpod
 
 To start your Phoenix server:
