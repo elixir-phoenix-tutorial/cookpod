@@ -9,6 +9,14 @@ html lang="en"
 
   body
     section.section
+      .navbar
+        .navbar-end
+          .navbar-item
+            = if logged_in?(@conn) do
+              p = "Hello, #{username(@conn)}"
+              = link("Log out", to: "/sessions", method: :delete, class: "button is-primary")
+            - else
+              a.button.is-primary href=Routes.page_path(@conn, :login) Login
       .container
         = if get_flash(@conn, :info) do
           .notification.is-info
