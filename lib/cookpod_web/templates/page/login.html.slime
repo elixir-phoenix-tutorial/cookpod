@@ -1,0 +1,19 @@
+form action="/sessions" method="POST"
+  input type="hidden" name="_csrf_token" value=@csrf_token
+  .field.is-horizontal
+    .field-label.is-normal
+      label.label Username
+    .field-body
+      .control
+        input.input type="text" placeholder="admin" name="username"
+  .field.is-horizontal
+    .field-label.is-normal
+      label.label Password
+    .field-body
+      .control
+        input.input type="password" placeholder="admin"  name="password"
+  .field.is-horizontal
+    .field-label.is-normal
+    .field-body
+      .control
+        button.button.is-primary Send

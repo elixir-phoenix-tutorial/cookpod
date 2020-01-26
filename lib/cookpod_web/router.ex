@@ -18,6 +18,8 @@ defmodule CookpodWeb.Router do
 
     get "/", PageController, :index
     get "/privacy", PageController, :privacy
+    get "/login", PageController, :login
+    resources "/sessions", SessionController, only: [:create]
   end
 
   # Other scopes may use custom stacks.
