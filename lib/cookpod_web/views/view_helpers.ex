@@ -1,4 +1,5 @@
 defmodule CookpodWeb.ViewHelpers do
+  @moduledoc false
   import Plug.Conn, only: [get_session: 2]
 
   def logged_in?(conn) do
@@ -9,6 +10,7 @@ defmodule CookpodWeb.ViewHelpers do
     case get_session(conn, :user) do
       nil ->
         "anonymous"
+
       user ->
         user
     end

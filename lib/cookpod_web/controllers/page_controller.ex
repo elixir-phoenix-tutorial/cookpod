@@ -1,7 +1,7 @@
 defmodule CookpodWeb.PageController do
   use CookpodWeb, :controller
 
-  plug CookpodWeb.AuthPlug when not action in [:index, :login]
+  plug CookpodWeb.AuthPlug when not (action in [:index, :login])
 
   def index(conn, _params) do
     render(conn, "index.html")
