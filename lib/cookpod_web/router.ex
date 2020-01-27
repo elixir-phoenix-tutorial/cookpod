@@ -1,5 +1,6 @@
 defmodule CookpodWeb.Router do
   use CookpodWeb, :router
+  use Plug.ErrorHandler
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -26,4 +27,12 @@ defmodule CookpodWeb.Router do
   # scope "/api", CookpodWeb do
   #   pipe_through :api
   # end
+
+  defp handle_errors(conn, %{reason: %Phoenix.ActionClauseError{}}) do
+    conn
+    |> put_status(:unprocessable_entity)
+    |> json(%{})
+  end
+
+  defp handle_errors(conn, _error), do: conn
 end
