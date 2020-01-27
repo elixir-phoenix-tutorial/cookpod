@@ -20,6 +20,8 @@ defmodule CookpodWeb.Router do
     get "/", PageController, :index
     get "/privacy", PageController, :privacy
     get "/login", PageController, :login
+    get "/register", UserController, :new
+    post "/register", UserController, :create
     resources "/sessions", SessionController, only: [:create, :delete], singleton: true
   end
 

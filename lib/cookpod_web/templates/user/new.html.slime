@@ -1,0 +1,43 @@
+form action="/register" method="POST"
+  input type="hidden" name="_csrf_token" value=@csrf_token
+  .field.is-horizontal
+    .field-label.is-normal
+      label.label Name
+    .field-body
+      .field
+        .control
+          input.input type="text" placeholder="John Doe" name="user[name]" value=@user.name
+        = if @errors[:name] do
+          p.help.is-danger = render_error(@errors[:name])
+  .field.is-horizontal
+    .field-label.is-normal
+      label.label Email
+    .field-body
+      .field
+        .control
+          input.input type="text" placeholder="john.doe@example.com" name="user[email]" value=@user.email
+        = if @errors[:email] do
+          p.help.is-danger = render_error(@errors[:email])
+  .field.is-horizontal
+    .field-label.is-normal
+      label.label Password
+    .field-body
+      .field
+        .control
+          input.input type="password" placeholder="enter password"  name="user[password]" value=@user.password
+        = if @errors[:password_hash] do
+          p.help.is-danger = render_error(@errors[:password_hash])
+  .field.is-horizontal
+    .field-label.is-normal
+      label.label Password confirmation
+    .field-body
+      .field
+        .control
+          input.input type="password" placeholder="confirm password"  name="user[password_confirmation]" value=@user.password_confirmation
+        = if @errors[:password_confirmation] do
+          p.help.is-danger = render_error(@errors[:password_confirmation])
+  .field.is-horizontal
+    .field-label.is-normal
+    .field-body
+      .control
+        button.button.is-primary Send
