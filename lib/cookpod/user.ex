@@ -12,13 +12,18 @@ defmodule Cookpod.User do
     timestamps()
   end
 
+  def new_changeset() do
+    cast(%Cookpod.User{}, %{}, [])
+  end
+
   @doc false
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:name, :email, :password, :password_confirmation])
     |> validate_confirmation(:password)
+    |> validate_length(:password, min: 4)
     |> hash_password()
-    |> validate_required([:name, :email, :password_hash])
+    |> validate_required([:name, :email])
     |> unique_constraint(:email)
   end
 

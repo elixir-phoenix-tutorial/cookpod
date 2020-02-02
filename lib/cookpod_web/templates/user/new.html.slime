@@ -6,36 +6,36 @@ form action="/register" method="POST"
     .field-body
       .field
         .control
-          input.input type="text" placeholder="John Doe" name="user[name]" value=@user.name
-        = if @errors[:name] do
-          p.help.is-danger = render_error(@errors[:name])
+          input.input type="text" placeholder="John Doe" name="user[name]" value=@changeset.changes[:name]
+        = if @changeset.errors[:name] do
+          p.help.is-danger = render_error(@changeset.errors[:name])
   .field.is-horizontal
     .field-label.is-normal
       label.label Email
     .field-body
       .field
         .control
-          input.input type="text" placeholder="john.doe@example.com" name="user[email]" value=@user.email
-        = if @errors[:email] do
-          p.help.is-danger = render_error(@errors[:email])
+          input.input type="text" placeholder="john.doe@example.com" name="user[email]" value=@changeset.changes[:email]
+        = if @changeset.errors[:email] do
+          p.help.is-danger = render_error(@changeset.errors[:email])
   .field.is-horizontal
     .field-label.is-normal
       label.label Password
     .field-body
       .field
         .control
-          input.input type="password" placeholder="enter password"  name="user[password]" value=@user.password
-        = if @errors[:password_hash] do
-          p.help.is-danger = render_error(@errors[:password_hash])
+          input.input type="password" placeholder="enter password"  name="user[password]" value=@changeset.changes[:password]
+        = if @changeset.errors[:password] do
+          p.help.is-danger = render_error(@changeset.errors[:password])
   .field.is-horizontal
     .field-label.is-normal
       label.label Password confirmation
     .field-body
       .field
         .control
-          input.input type="password" placeholder="confirm password"  name="user[password_confirmation]" value=@user.password_confirmation
-        = if @errors[:password_confirmation] do
-          p.help.is-danger = render_error(@errors[:password_confirmation])
+          input.input type="password" placeholder="confirm password"  name="user[password_confirmation]" value=@changeset.changes[:password_confirmation]
+        = if @changeset.errors[:password_confirmation] do
+          p.help.is-danger = render_error(@changeset.errors[:password_confirmation])
   .field.is-horizontal
     .field-label.is-normal
     .field-body

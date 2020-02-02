@@ -4,7 +4,8 @@ defmodule CookpodWeb.UserController do
   require Logger
 
   def new(conn, _params) do
-    render(conn, "new.html", csrf_token: get_csrf_token(), user: %Cookpod.User{}, errors: [])
+    changeset = Cookpod.User.new_changeset()
+    render(conn, "new.html", csrf_token: get_csrf_token(), changeset: changeset)
   end
 
   def create(conn, %{"user" => user_params}) do
@@ -18,8 +19,7 @@ defmodule CookpodWeb.UserController do
         redirect(conn, to: "/")
       {:error, changeset} ->
         Logger.debug("changeset: #{inspect(changeset)}")
-        Logger.debug("errors: #{inspect(changeset.errors)}")
-        render(conn, "new.html", csrf_token: get_csrf_token(), user: changeset.data, errors: changeset.errors)
+        render(conn, "new.html", csrf_token: get_csrf_token(), changeset: changeset)
     end
   end
 end
