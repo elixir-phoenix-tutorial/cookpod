@@ -48,7 +48,11 @@ defmodule Cookpod.MixProject do
       {:credo, "~> 1.1.5", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.10", only: :test},
       {:phoenix_slime, "~> 0.13.0"},
-      {:bcrypt_elixir, "~> 2.1"}
+      {:bcrypt_elixir, "~> 2.1"},
+      {:ex_aws, "~> 2.0"},
+      {:ex_aws_s3, "~> 2.0"},
+      {:sweet_xml, "~> 0.6.6"},
+      {:hackney, "~> 1.9"}
     ]
   end
 

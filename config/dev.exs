@@ -73,3 +73,8 @@ config :cookpod, Cookpod.Repo,
   database: "cookpod_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :ex_aws, :s3,
+  scheme: "http://",
+  host: "localhost",
+  port: 9000

@@ -5,3 +5,12 @@ services:
     image: postgres:12-alpine
     ports:
       - "5432:5432"
+
+  s3:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+    environment:
+      - "MINIO_ACCESS_KEY=access_key"
+      - "MINIO_SECRET_KEY=secret_key"
+    command: "server /data"

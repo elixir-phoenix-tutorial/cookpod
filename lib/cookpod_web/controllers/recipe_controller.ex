@@ -15,6 +15,7 @@ defmodule CookpodWeb.RecipeController do
   end
 
   def create(conn, %{"recipe" => recipe_params}) do
+    picture = recipe_params["picture"]
     case Recipes.create_recipe(recipe_params) do
       {:ok, recipe} ->
         conn

@@ -7,6 +7,7 @@ defmodule Cookpod.Recipes do
   alias Cookpod.Repo
 
   alias Cookpod.Recipes.Recipe
+  alias Cookpod.Recipes.Picture
 
   @doc """
   Returns the list of recipes.
@@ -49,6 +50,12 @@ defmodule Cookpod.Recipes do
       {:error, %Ecto.Changeset{}}
 
   """
+  def create_recipe(%{"picture" => %Plug.Upload{} = plug_upload} = attrs) do
+    attrs
+    |> Map.put("picture", Picture.upload!(plug_upload))
+    |> create_recipe()
+  end
+
   def create_recipe(attrs \\ %{}) do
     %Recipe{}
     |> Recipe.changeset(attrs)
