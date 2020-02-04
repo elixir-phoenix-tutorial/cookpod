@@ -8,6 +8,7 @@ defmodule Cookpod.Recipes do
 
   alias Cookpod.Recipes.Recipe
   alias Cookpod.Recipes.Picture
+  alias Cookpod.Recipes.StateMachine
 
   @doc """
   Returns the list of recipes.
@@ -107,5 +108,17 @@ defmodule Cookpod.Recipes do
   """
   def change_recipe(%Recipe{} = recipe) do
     Recipe.changeset(recipe, %{})
+  end
+
+  def publish(recipe) do
+    new_state =
+      recipe
+      |> StateMachine.restore()
+      |> StateMachine.publish()
+      |> StateMachine.state
+
+    recipe
+      |> Ecto.Changeset.change(state: new_state)
+      |> Repo.update!()
   end
 end
