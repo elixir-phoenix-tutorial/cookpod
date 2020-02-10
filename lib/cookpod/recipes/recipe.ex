@@ -6,7 +6,7 @@ defmodule Cookpod.Recipes.Recipe do
     field :description, :string
     field :name, :string
     field :picture, :string
-    field :state, :string, default: :draft
+    field :state, :string, default: "draft"
 
     timestamps()
   end

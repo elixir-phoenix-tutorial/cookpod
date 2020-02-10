@@ -11,5 +11,8 @@ ul
     strong Picture:&nbsp;
     img src=s3_path(@recipe.picture) alt=@recipe.name
 
-span= link "Edit", to: Routes.recipe_path(@conn, :edit, @recipe)
-span= link "Back", to: Routes.recipe_path(@conn, :index)
+span= button "Edit", to: Routes.recipe_path(@conn, :edit, @recipe)
+span= button "Back", to: Routes.recipe_path(@conn, :index)
+span= button "Resize", to: Routes.recipe_resize_path(@conn, :create, @recipe), method: :post, class: "btn"
+
+p#finished

@@ -17,5 +17,13 @@ defmodule Cookpod.Recipes.Picture do
     object
   end
 
+  def resize(recipe, on_finish) do
+    Task.async(fn ->
+      Process.sleep(5_000)
+      on_finish.()
+    end)
+    recipe
+  end
+
   defp bucket(), do: Application.get_env(:cookpod, :s3_bucket, "cookpod")
 end

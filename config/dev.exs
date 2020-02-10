@@ -77,4 +77,6 @@ config :cookpod, Cookpod.Repo,
 config :ex_aws, :s3,
   scheme: "http://",
   host: "localhost",
-  port: 9000
+  port: 9000,
+  access_key_id: "access_key",
+  secret_access_key: "secret_key"

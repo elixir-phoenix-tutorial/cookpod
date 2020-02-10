@@ -23,7 +23,9 @@ defmodule CookpodWeb.Router do
     get "/register", UserController, :new
     post "/register", UserController, :create
     resources "/sessions", SessionController, only: [:create, :delete], singleton: true
-    resources "/recipes", RecipeController
+    resources "/recipes", RecipeController do
+      resources "/resize", Recipe.ResizeController, only: [:create]
+    end
   end
 
   # Other scopes may use custom stacks.

@@ -110,6 +110,12 @@ defmodule Cookpod.Recipes do
     Recipe.changeset(recipe, %{})
   end
 
+  def resize_picture(recipe_id, on_finish) do
+    recipe_id
+    |> get_recipe!
+    |> Picture.resize(on_finish)
+  end
+
   def publish(recipe) do
     new_state =
       recipe
